@@ -11,12 +11,13 @@ function setup() {
     // Initialize Global Variables
 	x = 50;
 	y = 50;
-	xSpeed = 2;
+	// xSpeed = 2;
 
 	invaderBlocks = [];
 	xSpeed = [];
 	for (let i = 0; i < 21; i++) {
 		if (x < width - 100) {
+			xSpeed.push(2);
 			invaderBlocks.push([x, y])
 			x = x + 100;
 		}
@@ -29,7 +30,7 @@ function setup() {
 
 // DRAW FUNCTION - Loops @ 60FPS by default
 function draw() {
-    background(50);
+	background(50);
 	
 	// Move & Bounce
 	
@@ -39,13 +40,17 @@ function draw() {
 	stroke("orange");
 	for (let i = 0; i < invaderBlocks.length; i++) {
 		if (invaderBlocks[i][0] < 0 || invaderBlocks[i][0] + 50 > width) {
-			xSpeed = -xSpeed; // Change direction	 
+			xSpeed[i] = xSpeed[i] * -1; // Change direction	 
 			;// Shift down
 			invaderBlocks[i][1] += 50;
 		}
-		invaderBlocks[i][0] += xSpeed
-		
+
+		if (invaderBlocks[i][1] + 60 > height) {
+			invaderBlocks[i][1] = 50;
+		}
+		invaderBlocks[i][0] += xSpeed[i]
+		rect(invaderBlocks[i][0], invaderBlocks[i][1], 50, 50);
 	}
-	rect(invaderBlocks[i][0], invaderBlocks[i][1], 50, 50);
+	
 
 }
