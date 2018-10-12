@@ -29,10 +29,16 @@ function draw() {
 
 	platform(200, 300, 150, 20, GREY, RED);
 	platform(400, 500, 220, 20, GREY, ORANGE);
+	platform(550, 300, 150, 20, GREY, BLUE);
+	platform(200, 500, 100, 20, GREY, BROWN);
 
 	powerUp(560, 480, "?");
 	spike(260, 300, GREY);
-	itemBox(430, 480, GREY, ORANGE);
+	itemBox(220, 480, GREY, ORANGE);
+	door(480, 460, BLUE);
+	door(560, 260, RED);
+	bridge(360, 310, 10, GREY);
+	spikeStrip(300, 520, 5, GREY);
 }
 
 // EVENT FUNCTIONS
